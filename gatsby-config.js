@@ -1,18 +1,10 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+// gatsby-config.js
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Volvo Construction Equipment`,
+    description: `Volvo Construction Equipment offers a wide range of products and services in more than 140 countries through proprietary or authorized dealers.`,
+    author: `@volvoce`,
+    siteUrl: `https://www.volvce.com`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -28,16 +20,21 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `volvo-construction-equipment`,
+        short_name: `volvo-ce`,
         start_url: `/`,
-        background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        background_color: `#ffffff`,
+        theme_color: `#003057`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/volvo-icon.png`, // Add a Volvo icon to the src/images folder
       },
     },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`tailwindcss`), require(`autoprefixer`)],
+      },
+    },
+    `gatsby-plugin-gatsby-cloud`,
   ],
 }
