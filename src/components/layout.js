@@ -2,6 +2,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,11 +22,12 @@ const Layout = ({ children }) => {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <main>{children}</main>
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <h3 className="text-lg font-medium mb-4">Products</h3>
               <ul className="space-y-2">
@@ -145,6 +147,88 @@ const Layout = ({ children }) => {
                 © {new Date().getFullYear()} Volvo Construction Equipment. All
                 Rights Reserved.
               </p>
+            </div>
+          </div>
+
+          {/* Mobile Footer Links */}
+          <div className="md:hidden mt-8 pt-6 border-t border-gray-700">
+            <div className="grid grid-cols-2 gap-4">
+              <Link
+                to="/sitemap"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Sitemap
+              </Link>
+              <Link
+                to="/cookies"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Cookies
+              </Link>
+              <Link
+                to="/privacy"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Privacy
+              </Link>
+              <Link
+                to="/legal"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Legal Notice
+              </Link>
+            </div>
+          </div>
+
+          {/* Desktop Footer Links */}
+          <div className="hidden md:flex justify-between mt-8 pt-6 border-t border-gray-700">
+            <div className="flex space-x-6">
+              <Link
+                to="/sitemap"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Sitemap
+              </Link>
+              <Link
+                to="/cookies"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Cookies
+              </Link>
+              <Link
+                to="/privacy"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Privacy
+              </Link>
+              <Link
+                to="/legal"
+                className="text-gray-300 hover:text-white text-sm"
+              >
+                Legal Notice
+              </Link>
+            </div>
+            <div>
+              <a
+                href="#"
+                className="text-gray-300 hover:text-white flex items-center text-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 11l7-7 7 7M5 19l7-7 7 7"
+                  />
+                </svg>
+                Back to Top
+              </a>
             </div>
           </div>
         </div>
